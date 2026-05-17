@@ -5,7 +5,7 @@
 The Codex adapter for the seance pattern — feature parity with [`@agiterra/seance-claude-code`](https://github.com/agiterra/seance-claude-code), invoked Codex-style.
 
 ```
-$register alex workshop162/Alex
+$register alex agiterra/Alex
 $summon alex
 ```
 
