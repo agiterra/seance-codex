@@ -1,0 +1,20 @@
+{
+  "name": "seance-codex",
+  "owner": {
+    "name": "workshop162",
+    "url": "https://github.com/agiterra"
+  },
+  "metadata": {
+    "description": "Self-marketplace for seance-codex during pre-release soak. Promotes to agiterra/claude-marketplace when ready."
+  },
+  "plugins": [
+    {
+      "name": "seance",
+      "source": {
+        "source": "github",
+        "repo": "agiterra/seance-codex"
+      },
+      "description": "Borrow AI personae across machines — git clone + persona overlay. Codex adapter."
+    }
+  ]
+}
