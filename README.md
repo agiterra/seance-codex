@@ -13,7 +13,13 @@ After `summon`, your Codex session takes on the personai's identity (voice, auto
 
 ## Quick setup
 
-In Codex (0.130+):
+**Pre-release / direct install** (current — soak-testing before marketplace publish):
+
+```
+codex plugin install agiterra/seance-codex
+```
+
+**Once promoted to the agiterra marketplace** (TBD):
 
 ```
 codex plugin marketplace add agiterra/claude-marketplace
