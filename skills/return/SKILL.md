@@ -1,6 +1,6 @@
 ---
-description: Drop the active personai overlay and return to default identity.
-allowed-tools: Read
+name: return
+description: "Drop the active personai overlay and return to default identity."
 ---
 
 # $return — Drop the persona overlay

@@ -1,6 +1,6 @@
 ---
-description: Register a personai by GitHub repo so it can be summoned later.
-allowed-tools: mcp__seance__seance_register, Bash
+name: register
+description: "Register a personai by GitHub repo so it can be summoned later."
 ---
 
 # $register — Add a personai

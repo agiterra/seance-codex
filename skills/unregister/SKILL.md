@@ -1,6 +1,6 @@
 ---
-description: Remove a personai from the local registry. Does not delete the cache directory.
-allowed-tools: mcp__seance__seance_unregister, Bash
+name: unregister
+description: "Remove a personai from the local registry. Does not delete the cache directory."
 ---
 
 # $unregister — Remove a personai

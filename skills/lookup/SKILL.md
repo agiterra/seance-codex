@@ -1,6 +1,6 @@
 ---
-description: Multi-vault hybrid search across the current project vault and named personai vaults.
-allowed-tools: mcp__seance__seance_search
+name: lookup
+description: "Multi-vault hybrid search across the current project vault and named personai vaults."
 ---
 
 # $lookup — Multi-vault search

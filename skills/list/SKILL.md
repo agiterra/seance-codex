@@ -1,6 +1,6 @@
 ---
-description: Show locally registered personae with their repos and last-pulled commits.
-allowed-tools: mcp__seance__seance_list
+name: list
+description: "Show locally registered personae with their repos and last-pulled commits."
 ---
 
 # $list — Show registered personae

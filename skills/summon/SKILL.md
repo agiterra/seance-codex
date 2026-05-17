@@ -1,6 +1,6 @@
 ---
-description: Borrow a registered personai and take on its identity (CLAUDE.md, voice, vault) in the current session. Wire signing identity stays with the user.
-allowed-tools: mcp__seance__seance_borrow, mcp__seance__seance_list, Bash, Read
+name: summon
+description: "Borrow a registered personai and take on its identity (CLAUDE.md, voice, vault) in the current session. Wire signing identity stays with the user."
 ---
 
 # $summon — Embody a personai
