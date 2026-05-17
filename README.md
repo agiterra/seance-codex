@@ -13,31 +13,57 @@ After `summon`, your Codex session takes on the personai's identity (voice, auto
 
 ## Quick setup
 
-**Pre-release direct install** (current — soak-testing before central marketplace publish):
+> **Codex 0.130 install path.** Codex 0.130 has no `codex plugin install` / `add` command, so `marketplace add` alone doesn't install a third-party plugin. Two steps get you all the way there: install the *skills* via the built-in Skill Installer, then wire the *MCP server* directly in `~/.codex/config.toml`.
 
-This repo is its own one-plugin marketplace. Add it directly:
+### 1. Install the skills
+
+From any shell:
+
+```bash
+python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py \
+  --method git \
+  --repo agiterra/seance-codex \
+  --path skills/summon skills/register skills/list skills/return skills/lookup skills/unregister
+```
+
+This installs each skill directory into `~/.codex/skills/<name>/`. Codex's user-skill discovery picks them up — no plugin manifest required.
+
+(`--method git` forces the git-sparse-checkout fallback. The default `--method auto` tries a direct download first, which hits SSL cert verify errors on stock macOS Python 3.12.)
+
+### 2. Wire the MCP server in `~/.codex/config.toml`
+
+Clone this repo somewhere local (`~/NewProjects/seance-codex/` is fine), then add:
+
+```toml
+[mcp_servers.seance]
+command = "bun"
+args = ["run", "--cwd", "/Users/YOU/NewProjects/seance-codex", "--shell=bun", "--silent", "start"]
+```
+
+The `start` script (`bun install --no-summary && bun run server.ts`) self-installs deps on first run, so you don't need a separate `bun install` step.
+
+### 3. Restart Codex
+
+```
+codex --yolo    # or whatever flags you normally use
+```
+
+Verify with `/skills` — you should see `summon`, `register`, `list`, `return`, `lookup`, `unregister`.
+
+### Prerequisites
+- Bun (https://bun.sh) for the MCP server
+- Git for the Skill Installer's sparse-checkout path
+
+### Future install (once `codex plugin install` ships)
+
+When a newer Codex CLI version supports proper third-party plugin install, the marketplace path becomes:
 
 ```
 codex plugin marketplace add agiterra/seance-codex
+# + codex plugin install seance@seance-codex  (when this command exists)
 ```
 
-Then enable seance in `~/.codex/config.toml`:
-
-```toml
-[plugins."seance@seance-codex"]
-enabled = true
-```
-
-**Once promoted to `agiterra/claude-marketplace`** (TBD — after v0.1.0 soak):
-
-```
-codex plugin marketplace add agiterra/claude-marketplace
-# seance entry will be available as seance@agiterra
-```
-
-### Prerequisites
-- Bun (https://bun.sh) — the plugin bootstraps it via `ensure-bun.sh` if missing
-- A registered personai repo
+That single-step install will replace steps 1 and 2 above. The current two-step path stays valid as long as the files are where they are.
 
 ## Skills
 
