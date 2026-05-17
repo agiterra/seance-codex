@@ -13,17 +13,26 @@ After `summon`, your Codex session takes on the personai's identity (voice, auto
 
 ## Quick setup
 
-**Pre-release / direct install** (current — soak-testing before marketplace publish):
+**Pre-release direct install** (current — soak-testing before central marketplace publish):
+
+This repo is its own one-plugin marketplace. Add it directly:
 
 ```
-codex plugin install agiterra/seance-codex
+codex plugin marketplace add agiterra/seance-codex
 ```
 
-**Once promoted to the agiterra marketplace** (TBD):
+Then enable seance in `~/.codex/config.toml`:
+
+```toml
+[plugins."seance@seance-codex"]
+enabled = true
+```
+
+**Once promoted to `agiterra/claude-marketplace`** (TBD — after v0.1.0 soak):
 
 ```
 codex plugin marketplace add agiterra/claude-marketplace
-codex plugin install seance@agiterra
+# seance entry will be available as seance@agiterra
 ```
 
 ### Prerequisites
